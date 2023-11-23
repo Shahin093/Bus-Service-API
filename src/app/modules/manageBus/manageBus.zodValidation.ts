@@ -12,7 +12,7 @@ const createBusZodSchema = z.object({
     img: z.string({
       required_error: "Image is required!",
     }),
-    seat: z.string({
+    seat: z.number({
       required_error: "seat is required!",
     }),
     description: z.string({
