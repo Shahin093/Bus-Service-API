@@ -8,6 +8,14 @@ const router = express.Router();
 router.get("/", BusController.getAllBuses);
 router.get("/:id", BusController.getSingleBus);
 
+router.patch(
+  "/:id",
+  zodValidateRequest(BusZodValidation.updateBusZodSchema),
+  BusController.updateBus
+);
+
+router.delete("/:id", BusController.deleteBus);
+
 router.post(
   "/create-bus",
   zodValidateRequest(BusZodValidation.createBusZodSchema),

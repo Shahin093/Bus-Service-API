@@ -71,8 +71,21 @@ const getSingleBus = async (id: string): Promise<IBus | null> => {
   return result;
 };
 
+const updateBus = async (id: string, payload: IBus): Promise<IBus | null> => {
+  const result = await Bus.findByIdAndUpdate({ _id: id }, payload);
+
+  return result;
+};
+
+const deleteBus = async (id: string): Promise<IBus | null> => {
+  const result = await Bus.findByIdAndDelete(id);
+  return result;
+};
+
 export const BusService = {
   createBus,
   getAllBuses,
   getSingleBus,
+  updateBus,
+  deleteBus,
 };

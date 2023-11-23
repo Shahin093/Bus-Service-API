@@ -46,8 +46,37 @@ const getSingleBus = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
+const updateBus = catchAsync(async (req: Request, res: Response) => {
+  const id = req.params.id;
+
+  const updatedData = req.body;
+
+  const result = await BusService.updateBus(id, updatedData);
+
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: "Bus updated successfully",
+    data: result,
+  });
+});
+
+const deleteBus = catchAsync(async (req: Request, res: Response) => {
+  const id = req.params.id;
+  const result = await BusService.deleteBus(id);
+
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: "Bus Deleted successfully",
+    data: result,
+  });
+});
+
 export const BusController = {
   createBus,
   getAllBuses,
   getSingleBus,
+  updateBus,
+  deleteBus,
 };
