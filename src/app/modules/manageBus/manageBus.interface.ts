@@ -15,7 +15,7 @@ export interface IBus extends Document {
   img: string;
   seat: number;
   destination: destination;
-  discription: string;
+  description: string;
   createdAt: Date;
   updatedAt: Date;
 }
