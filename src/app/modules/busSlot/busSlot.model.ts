@@ -16,6 +16,9 @@ const SlotSchema: Schema = new Schema(
       type: Array,
       required: true,
     },
+    todayDate: {
+      type: String,
+    },
   },
   {
     timestamps: true,

@@ -9,7 +9,7 @@ npm run dev(If you can start this project.)
 <!-- ## Requirement Analysis (https://drive.google.com/file/d/1PkU_eL908jIchY469OJjMc3Zlc8USW8g/view?usp=sharing)
 ## Database Design (https://drive.google.com/file/d/1PkU_eL908jIchY469OJjMc3Zlc8USW8g/view?usp=sharing) -->
 
-##Live Site Link (Frontend) : (https://busservices.netlify.app/)
-##Live Site Link (Backend) : ()
-##Frontend Github Repo : ()
-##Server Github Repo : ()
+##Live Site Link (Frontend)  (https://busservices.netlify.app/)
+##Live Site Link (Backend)  (https://bus-service-a999akkxn-shahin093.vercel.app/)
+##Frontend Github Repo  ()
+##Server Github Repo  (https://github.com/Shahin093/Bus-Service-API)

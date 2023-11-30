@@ -6,6 +6,7 @@ export interface ISlot extends Document {
   bus?: Types.ObjectId | IBus;
   seat: [];
   slots: string;
+  todayDate: string;
   createdAt: Date;
   updatedAt: Date;
 }

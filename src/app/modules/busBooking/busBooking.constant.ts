@@ -1,6 +1,6 @@
-export const busSearchableFields = ["busName", "seat", "destination"];
+export const busBookingSearchableFields = ["busName", "seat", "destination"];
 
-export const busFilterableFields = [
+export const busBookingFilterableFields = [
   "searchTerm",
   "busName",
   "seat",
