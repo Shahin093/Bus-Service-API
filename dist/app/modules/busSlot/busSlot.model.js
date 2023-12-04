@@ -38,6 +38,9 @@ const SlotSchema = new mongoose_1.Schema({
         type: Array,
         required: true,
     },
+    todayDate: {
+        type: String,
+    },
 }, {
     timestamps: true,
 });

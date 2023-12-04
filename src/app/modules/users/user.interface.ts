@@ -14,6 +14,7 @@ export type UserName = {
 export interface IUser extends Document {
   _id: string;
   phoneNumber: string;
+  email: string;
   role?: UserRole;
   password?: string;
   name: UserName;

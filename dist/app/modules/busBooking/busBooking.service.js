@@ -31,18 +31,32 @@ const busSlot_model_1 = __importDefault(require("../busSlot/busSlot.model"));
 // bus - 655f1baf055ea2f8c1f1b8a8
 // user -
 const createBusBooking = (payload) => __awaiter(void 0, void 0, void 0, function* () {
-    const seats = payload.seat;
-    const todayBookingSeat = yield busSlot_model_1.default.find({ slot: payload.destination });
-    console.log("todayBookingSeat", todayBookingSeat);
     const today = new Date();
-    console.log("today : ", today);
-    const demoSeatData = {
+    console.log("today", today.toISOString().slice(0, 10).slice(0, 10));
+    const tomorrow = new Date(today);
+    tomorrow.setDate(today.getDate() + 1);
+    const todayBookingSeat = yield busSlot_model_1.default.find({
+        slot: payload.destination,
+        todayDate: today.toISOString().slice(0, 10).slice(0, 10),
+    });
+    const busSeatData = {
         bus: payload.bus,
         seat: payload.seat,
         slot: payload.destination,
+        todayDate: today.toISOString().slice(0, 10).slice(0, 10),
     };
-    // const createSeatSlot = await Slot.create(demoSeatData);
-    // console.log("createSeatSlot", createSeatSlot);
+    if (todayBookingSeat.length > 0) {
+        // if you already booking , so you can update
+        const oldSeat = todayBookingSeat[0].seat;
+        const newSeat = payload.seat;
+        yield busSlot_model_1.default.findByIdAndUpdate({ _id: todayBookingSeat[0]._id }, { seat: [...oldSeat, ...newSeat] }, {
+            new: true,
+        });
+    }
+    else {
+        // if you already booking , so you can create
+        yield busSlot_model_1.default.create(busSeatData);
+    }
     const result = (yield (yield busBooking_model_1.default.create(payload)).populate("user")).populate("bus");
     return result;
 });
